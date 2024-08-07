@@ -1,6 +1,6 @@
 # Hoja de Trabajo 3
 # Una breve descripción del proyecto. 
-Este es un documento HTML que utiliza un diseño CSS inspirado en la belleza y la tranquilidad de San Marcos La Laguna. Cada elemento de estilo ha sido cuidadosamente seleccionado para reflejar la esencia de este encantador pueblo guatemalteco, desde sus colores vibrantes hasta la serenidad de sus paisajes naturales.
+El objetivo de esta hoja de trabajo es que pueda explorar y dominar el uso de Bootstrap para mejorar el diseño de  páginas web. Esta es LA oportunidad de experimentar con herramientas poderosas y aprender a crear sitios web que no solo sean funcionales, sino también visualmente atractivos.
 
 
 
