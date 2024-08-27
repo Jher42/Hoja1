@@ -18,6 +18,6 @@ Formulario de Contacto Requisitos.
 
 # El enlace del sitio web publicado.
 
-https://hojadetrabajo3umg.netlify.app
+https://hoja4js.netlify.app/hojadetrabajo
 # El nombre del estudiante que desarrolló la página web.
 Francis Jonathan David Herrarte Ramirez
