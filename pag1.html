@@ -9,32 +9,45 @@
 </head>
 <body>
     <style>
-body {
-    background-color: #f8f9fa;
-}
+        body {
+            background-color: #f8f9fa;
+        }
 
-.navbar {
-    background-color: #343a40;
-}
+        .navbar {
+            background-color: #343a40;
+        }
 
-.navbar-brand, .nav-link {
-    color: #000 !important;
-}
+        .navbar-brand, .nav-link {
+            color: #000 !important;
+        }
 
-@media (max-width: 768px) {
-    .carousel-item {
-        height: 300px;
-    }
-}
+        @media (max-width: 768px) {
+            .carousel-item {
+                height: 300px;
+            }
+        }
 
-@media (min-width: 769px) {
-    .carousel-item {
-        height: 500px;
-    }
-}
-</style>
+        @media (min-width: 769px) {
+            .carousel-item {
+                height: 500px;
+            }
+        }
 
-   
+        /* Estilos adicionales para el área de comentarios */
+        #comentarios {
+            margin-top: 50px;
+        }
+
+        .comentario {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+
+    <!-- Navegación -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="pag1.html">Sitio Web</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +55,6 @@ body {
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-              
                 <li class="nav-item">
                     <a class="nav-link" href="HojaDeTrabajo.html">Principal</a>
                 </li>
@@ -52,11 +64,14 @@ body {
                 <li class="nav-item">
                     <a class="nav-link" href="alojamiento.html">Alojamiento</a>
                 </li>
-                
+                 <li class="nav-item">
+                    <a class="nav-link" href="contacto.html">Contácto</a>
+                </li>
             </ul>
         </div>
     </nav>
 
+    <!-- Carrusel -->
     <div id="carousel" class="carousel slide mt-4" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
@@ -84,14 +99,96 @@ body {
         </a>
     </div>
 
+    <!-- Contenido Principal -->
     <div class="container mt-5">
         <h1 class="text-center">Bienvenido al Sitio Web</h1>
-        <p><p class="text-center">¡Bienvenido a nuestro sitio web dedicado a San Marcos La Laguna, uno de los destinos más encantadores y serenos de Guatemala! San Marcos La Laguna es un pintoresco pueblo a orillas del Lago de Atitlán, conocido por su ambiente tranquilo, sus impresionantes paisajes y su rica cultura local. En este sitio, te ofrecemos una guía completa para que puedas aprovechar al máximo tu visita. Desde una variedad de atracciones naturales y culturales hasta recomendaciones de alojamiento que se adapten a todos los gustos y presupuestos, nuestra misión es ayudarte a descubrir lo mejor de este maravilloso lugar. Navega por nuestras secciones para encontrar información detallada sobre los principales puntos de interés, las mejores actividades para disfrutar, y los lugares más acogedores para hospedarte. Ya sea que estés buscando un retiro espiritual, una aventura al aire libre o simplemente un lugar para relajarte, San Marcos La Laguna tiene algo especial para ti. ¡Explora, disfruta y comienza a 
-</p>
+        <p class="text-center">¡Bienvenido a nuestro sitio web dedicado a San Marcos La Laguna!...</p>
+
+        <!-- Área de Comentarios -->
+        <div id="comentarios">
+            <h2 class="text-center">Comentarios</h2>
+            <div id="lista-comentarios"></div>
+            <div class="form-group">
+               
+        </div>
     </div>
+
+    <!-- Modal de Confirmación -->
+    <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="modalConfirmacionLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalConfirmacionLabel">Confirmación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>¡Comentario agregado con éxito!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Arreglos de comentarios y nombres
+        const comentarios = [
+            "¡Este lugar es increíble!",
+            "Me encanta la vista.",
+            "Definitivamente volveré.",
+            "La gente es muy amable.",
+            "El ambiente es muy relajante.",
+            "Perfecto para unas vacaciones.",
+            "Las actividades fueron divertidas.",
+            "La comida es deliciosa.",
+            "Un destino único.",
+            "Una experiencia inolvidable."
+        ];
+
+        const nombres = [
+            "Ana", "Carlos", "Beatriz", "David", "Elena", 
+            "Fernando", "Gabriela", "Héctor", "Isabel", "Jorge"
+        ];
+
+        function mostrarComentariosAleatorios() {
+            let comentariosSeleccionados = [];
+            let nombresSeleccionados = [];
+
+            // Selecciona 3 nombres y comentarios aleatorios usando un bucle for
+            for (let i = 0; i < 3; i++) {
+                let indiceComentario, indiceNombre;
+
+                // Asegúrate de que el comentario seleccionado no se haya utilizado antes
+                do {
+                    indiceComentario = Math.floor(Math.random() * comentarios.length);
+                } while (comentariosSeleccionados.includes(comentarios[indiceComentario]));
+
+                // Asegúrate de que el nombre seleccionado no se haya utilizado antes
+                do {
+                    indiceNombre = Math.floor(Math.random() * nombres.length);
+                } while (nombresSeleccionados.includes(nombres[indiceNombre]));
+
+                // Añade el comentario y el nombre seleccionados a los arrays correspondientes
+                comentariosSeleccionados.push(comentarios[indiceComentario]);
+                nombresSeleccionados.push(nombres[indiceNombre]);
+            }
+
+            let listaComentarios = document.getElementById("lista-comentarios");
+            listaComentarios.innerHTML = "";
+            for (let i = 0; i < comentariosSeleccionados.length; i++) {
+                listaComentarios.innerHTML += `<div class="comentario"><strong>${nombresSeleccionados[i]}</strong>: ${comentariosSeleccionados[i]}</div>`;
+            }
+        }
+
+        // Llama a la función para mostrar los comentarios al cargar la página
+        mostrarComentariosAleatorios();
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> </div> 
 </body>
 </html>
